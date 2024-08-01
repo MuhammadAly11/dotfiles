@@ -1,0 +1,68 @@
+-- local bufnr = -1
+--
+-- local function open_buffer()
+-- 	-- Get a boolean that tells us if the buffer number is visible anymore.
+-- 	--
+-- 	-- :help bufwinnr
+-- 	local buffer_visible = vim.api.nvim_call_function("bufwinnr", { bufnr }) ~= -1
+--
+-- 	if bufnr == -1 or not buffer_visible then
+-- 		-- Create a new buffer with the name "AUTOTEST_OUTPUT".
+-- 		-- Same name will reuse the current buffer.
+-- 		vim.api.nvim_command("split AUTOTEST_OUTPUT")
+--
+-- 		-- Collect the buffer's number.
+-- 		bufnr = vim.api.nvim_get_current_buf()
+-- 	end
+-- end
+--
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+-- 	desc = "compile cpp code that match p*.cpp for cpp courseByMostafa",
+-- 	group = vim.api.nvim_create_augroup("compiling", { clear = true }),
+-- 	pattern = "p*.cpp",
+-- 	callback = function()
+-- 		open_buffer()
+--
+-- 		vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "Output: " })
+--
+-- 		local filename = vim.fn.expand("%:p")
+-- 		vim.fn.jobstart({ "g++", filename }, {
+-- 			stdout_buffered = true,
+-- 			-- on_stdout = function(_, data)
+-- 			-- 	if data then
+-- 			-- 		vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, data)
+-- 			-- 	end
+-- 			-- end,
+-- 			on_stderr = function(_, data)
+-- 				if data then
+-- 					vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, data)
+-- 				end
+-- 			end,
+-- 			on_exit = function(_, exit_code)
+-- 				if exit_code == 0 then
+-- 					vim.fn.jobstart({ "./a.out" }, {
+-- 						stdout_buffered = true,
+-- 						on_stdout = function(_, data)
+-- 							if data then
+-- 								vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, data)
+-- 							end
+-- 						end,
+-- 						on_stderr = function(_, data)
+-- 							if data then
+-- 								vim.api.nvim_buf_set_lines(bufnr, -1, -1, false, data)
+-- 							end
+-- 						end,
+-- 					})
+-- 				else
+-- 					vim.api.nvim_buf_set_lines(
+-- 						bufnr,
+-- 						-1,
+-- 						-1,
+-- 						false,
+-- 						{ "Compilation failed with exit code: " .. exit_code }
+-- 					)
+-- 				end
+-- 			end,
+-- 		})
+-- 	end,
+-- })
