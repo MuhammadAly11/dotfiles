@@ -54,7 +54,7 @@ alias nrr="nix-env -e"
 alias nqq="nix search nixpkgs"
 alias nuu="nix-channel --update; nix-env -u; nix-collect-garbage -d"
 
-alias u="duu; flatpak upgrade; drr"
+alias u="duu; flatpak upgrade; drr; distrobox upgrade -a"
 
 # enable vim mode
 set -o vi
