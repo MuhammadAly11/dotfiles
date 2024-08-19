@@ -29,6 +29,7 @@ unset rc
 #
 # bash options section (recommendations form archwiki)
 export HISTCONTROL=erasedups
+export HISTSIZE=10000
 export HISTFILESIZE=10000
 shopt -s histappend
 
