@@ -63,3 +63,4 @@ bind -m vi-insert 'Control-l: clear-screen'
 
 # integrate fzf with bash
 eval "$(fzf --bash)"
+eval "$(zoxide init bash)"

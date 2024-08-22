@@ -104,9 +104,9 @@ vim.opt.number = true
 --  Experiment for yourself to see if you like it!
 vim.opt.relativenumber = true
 
--- make tab 4 spaces
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+-- make tab 2 spaces
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
