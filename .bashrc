@@ -29,33 +29,13 @@ unset rc
 #
 # bash options section (recommendations form archwiki)
 export HISTCONTROL=erasedups
-export HISTSIZE=10000
-export HISTFILESIZE=10000
+export HISTSIZE=100000
+export HISTFILESIZE=100000
 shopt -s histappend
 
 
 # Aliases section
-alias v='nvim $(fzf -m --preview="bat --color=always {}")'
-alias vi="nvim"
-alias dotfiles='git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
-
-# Package manager Aliases
-alias duu="sudo dnf upgrade"
-alias dii="sudo dnf install"
-alias drr="sudo dnf autoremove"
-alias dqq="sudo dnf search"
-
-alias pii="sudo pacman -S"
-alias puu="sudo pacman -Syu"
-alias prr="sudo pacman -Rs"
-alias pqq="sudo pacman -Ss"
-
-function nii() { nix-env -iA nixpkgs.$@; }
-alias nrr="nix-env -e"
-alias nqq="nix search nixpkgs"
-alias nuu="nix-channel --update; nix-env -u; nix-collect-garbage -d"
-
-alias u="duu; flatpak upgrade; drr; distrobox upgrade -a"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 
 # enable vim mode
 set -o vi
