@@ -2,6 +2,7 @@
 alias v='nvim $(fzf -m --preview="bat --color=always {}")'
 alias vi="nvim"
 alias dotfiles='git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+alias lazydots='lazygit --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 
 # Package manager Aliases
 alias duu="sudo dnf upgrade"
@@ -19,4 +20,19 @@ alias nrr="nix-env -e"
 alias nqq="nix search nixpkgs"
 alias nuu="nix-channel --update; nix-env -u; nix-collect-garbage -d"
 
+# Update system
 alias u="duu; flatpak upgrade; drr; distrobox upgrade -a"
+
+# Colorize commands when possible.
+alias \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi" \
+	ip="ip -color=auto"
+
+# use zoxide and lsd
+alias \
+	ll="lsd -l" \
+	lla="lsd -la" \
+	cd="z" \
